@@ -1,5 +1,5 @@
 # UART-with_FIFO
-This project implements a UART (Universal Asynchronous Receiver Transmitter) system with FIFO (First-In-First-Out) buffers for both transmission (TX) and reception (RX), written in synthesizable SystemVerilog. It is designed to support modularity, configurability, and testability.
+This project implements a configurable and modular UART (Universal Asynchronous Receiver Transmitter) system enhanced with synchronous FIFO (First-In-First-Out) buffers for both transmit (TX) and receive (RX) paths. It is written in synthesizable SystemVerilog and designed for ease of reuse and testing in FPGA-based communication systems.
 
 ## Features
 - **Configurable UART Transmitter & Receiver**
@@ -9,29 +9,35 @@ This project implements a UART (Universal Asynchronous Receiver Transmitter) sys
   - TX FIFO buffers outgoing data
   - RX FIFO stores received bytes
 - **Modular Design**
-  - Separated `uart_tx`, `uart_rx`, and `sync_fifo` modules
-  - FIFO RAM abstracted for synthesis as block RAM
+  - uart_tx, uart_rx, and sync_fifo are independently testable and reusable
+  - FIFO RAM abstracted to infer block RAM in synthesis
 - **Handshaking Interface**
   - Follows `valid`/`ready` protocol for control
 - **Testbenches**
   - TBs for UART TX, RX, and FIFO to validate functionality
 
-## Simulation Results
+## Simulation
+Tool used: Vivado XSIM
+Simulation duration: 10 ms
+
+## Results
 
 ### UART Transmitter
-This waveform shows the UART transmitter sending bytes with proper framing and handshake control.
+Sends serial data frames with correct start, data, optional parity, and stop bits.
 
 ![UART TX](tb/images/uart_tx_waveform.png)
 
 ---
 ### UART Receiver
-This waveform shows reception of serial data bits into parallel format, validating signal synchronization and output correctness.
+Receives and reconstructs bytes from the serial stream, with optional parity checking.
 
 ![UART RX](tb/images/uart_rx_waveform.png)
 
 ---
 ### Synchronous FIFO
-Illustrates data being written to and read from the FIFO. Includes internal memory content and control flags (full/empty).
+Stores and forwards bytes between UART and application logic using full/empty flags.
 
 ![FIFO](tb/images/fifo_waveform.png)
 
+## License
+This project is licensed under the MIT License.
