@@ -16,4 +16,22 @@ This project implements a UART (Universal Asynchronous Receiver Transmitter) sys
 - **Testbenches**
   - TBs for UART TX, RX, and FIFO to validate functionality
 
-## Testbenches
+## Simulation Results
+
+### UART Transmitter
+This waveform shows the UART transmitter sending bytes with proper framing and handshake control.
+
+![UART TX](tb/images/uart_tx_waveform.png)
+
+---
+### UART Receiver
+This waveform shows reception of serial data bits into parallel format, validating signal synchronization and output correctness.
+
+![UART RX](tb/images/uart_rx_waveform.png)
+
+---
+### Synchronous FIFO
+Illustrates data being written to and read from the FIFO. Includes internal memory content and control flags (full/empty).
+
+![FIFO](tb/images/fifo_waveform.png)
+
