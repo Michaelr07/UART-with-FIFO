@@ -1,4 +1,4 @@
-# UART-with_FIFO
+# UART with FIFO
 This project implements a configurable and modular UART (Universal Asynchronous Receiver Transmitter) system enhanced with synchronous FIFO (First-In-First-Out) buffers for both transmit (TX) and receive (RX) paths. It is written in synthesizable SystemVerilog and designed for ease of reuse and testing in FPGA-based communication systems.
 
 ## Features
